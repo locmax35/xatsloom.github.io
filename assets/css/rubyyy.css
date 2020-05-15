@@ -51,7 +51,6 @@ body {
 
 #text {
     position: absolute;
-    left: calc(58% - 292px);
     top: calc(50% - 149px);
     font-size: 39px;
     font-weight: bold;
@@ -59,4 +58,7 @@ body {
     text-shadow: 1px 1px hsla(0,0%,5%,1), -1px -1px hsla(0,0%,5%,1);
     font-family: 'Poiret One', cursive;
     letter-spacing: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 344px;
 }
