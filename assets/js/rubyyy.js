@@ -1,1 +1,1 @@
-console.info(window.parent, window);
+console.info('Hello world!');
