@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
 html,
 body {
   background-color: #240F52; 
@@ -18,28 +20,43 @@ body {
 
 .outer-ring {
   position: absolute;
-  left: calc(50% - 150px);
-  height: 300px;
-  width: 300px;
-  background-image: linear-gradient(135deg, #FEED07 0%, #FE6A50 5%, #ED00AA 15%, #2FE3FE 50%, #8900FF 100%);
+  left: calc(50% - 222px);
+  height: 250px;
+  width: 250px;
+  background-image: linear-gradient(135deg, #000050 0%, #212529 5%, #17a2b8 15%, #8a8a8a 50%, #dc3545 100%);
   border-radius: 50%;
   
   /*  Rotate  */
   animation-duration: 2s;
   animation-name: rotate;
   animation-iteration-count: infinite;
+  top: calc(50% - 249px);
 }
 
 .inner-ring {
   position: absolute;
-  left: calc(50% - 140px);
-  height: 280px;
-  width: 280px;
+  left: calc(50% - 212px);
+  height: 230px;
+  width: 230px;
   background-image: linear-gradient(0deg, #36295e, #1c1045);
   border-radius: 50%;
+  top: calc(50% - 240px);
 }
 
 @keyframes rotate {
     0% {transform:rotate(0deg);}
     100% {transform:rotate(360deg);}
+}
+
+
+#text {
+    position: absolute;
+    left: calc(58% - 292px);
+    top: calc(50% - 149px);
+    font-size: 39px;
+    font-weight: bold;
+    color: hsl(254, 100%, 99%);
+    text-shadow: 1px 1px hsla(0,0%,5%,1), -1px -1px hsla(0,0%,5%,1);
+    font-family: 'Poiret One', cursive;
+    letter-spacing: 5px;
 }
