@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rubyyy</title>
+		<style>
+			html, body {
+			    background-image: linear-gradient(0deg, #000000, #01142f);
+			    height: 100%;
+			    overflow: hidden;
+			    display: flex;
+			    flex-direction: row;
+			    flex-wrap: wrap;
+			    justify-content: center;
+			    align-content: flex-start;
+			    align-items: center;
+			}
+			div#chat_data {
+			    width: 300px;
+			    height: 350px;
+			    position: fixed;
+			    margin-top: 9%;
+			    top: 0;
+			    right: 69px;
+			    background: linear-gradient(#004,#008);
+			    border: 1px solid white;
+			    border-radius: 10px;
+			}
+
+			li {
+			    list-style: none;
+			    text-align: left;
+			    margin-bottom: 23px;
+			}
+
+			div#data {    
+			    color: white;
+			    text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="chat_data" style="display:none">
+			<div id="data">
+				<h1 id="Name">N/A</h1>
+				<ul>
+					<li id="ID"></li>
+					<li id="background"></li>
+					<li id="language"></li>
+					<li id="radio"></li>
+					<li id="buttons"></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.addEventListener("DOMContentLoaded", init);
+
+			function init() {
+				let chat_data = document.querySelector('#chat_data');
+				let hasChat = getParams('chatname');
+				if (hasChat) {
+					fetch('https://api.illuxat.com/room/' + hasChat).then((e) => {
+						return e.json();
+					}).then((e) => {
+						if (e.code == 200) {
+							let data = e.data;
+							for (let i in e.data) {
+								let selector = document.querySelector('#' + i);
+								if (selector) {
+									if (i == 'background' &&  !e.data['background']) {
+										e.data['background'] = 'No background';
+									}
+									selector.innerHTML = e.data[i];
+								}
+							}
+							chat_data.style.display = '';
+						}
+					})
+				}
+			}
+
+			function getParams(g) {
+				let search = decodeURIComponent(window.location.search).match(new RegExp('[?&]' + g + '=([^&]+)'));
+				return search[1] || null;
+			}
+		</script>
+	</body>
+</html>
