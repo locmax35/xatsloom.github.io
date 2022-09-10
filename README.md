@@ -1,2 +1,2 @@
 # xatsloom.github.io
-A repository for my personal xatspace - https://xat.me/SLOom
+A collection of xatframes for xat.com made for personal uses.
